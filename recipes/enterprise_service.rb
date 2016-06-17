@@ -18,8 +18,8 @@
 #
 
 service "sensu-enterprise" do
-  subscribes :restart, resources("package[sensu-enterprise]"), :delayed
-  subscribes :restart, resources("template[/etc/default/sensu-enterprise]"), :delayed
+  subscribes :restart, resources("package[sensu-enterprise]"), :immediately
+  subscribes :restart, resources("template[/etc/default/sensu-enterprise]"), :immediately
   supports :status => true, :start => true, :stop => true, :restart => true, :reload => false
   action [:enable, :start]
 end
